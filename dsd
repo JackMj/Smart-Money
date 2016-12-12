@@ -1,0 +1,760 @@
+[33mcommit e66438b9d28b01bd0b4fc427e5ad724e0530404f[m
+Author: angular-cli <angular-cli@angular.io>
+Date:   Sun Nov 20 11:46:49 2016 +0200
+
+    chore: initial commit from angular-cli
+                              _                      _ _
+       __ _ _ __   __ _ _   _| | __ _ _ __       ___| (_)
+      / _  |  _ \ / _  | | | | |/ _  |  __|____ / __| | |
+     | (_| | | | | (_| | |_| | | (_| | | |_____| (__| | |
+      \____|_| |_|\__  |\____|_|\____|_|        \___|_|_|
+                  |___/
+
+[1mdiff --git a/.editorconfig b/.editorconfig[m
+[1mnew file mode 100644[m
+[1mindex 0000000..f352616[m
+[1m--- /dev/null[m
+[1m+++ b/.editorconfig[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32m# Editor configuration, see http://editorconfig.org[m
+[32m+[m[32mroot = true[m
+[32m+[m
+[32m+[m[32m[*][m
+[32m+[m[32mcharset = utf-8[m
+[32m+[m[32mindent_style = space[m
+[32m+[m[32mindent_size = 2[m
+[32m+[m[32mend_of_line = lf[m
+[32m+[m[32minsert_final_newline = true[m
+[32m+[m[32mtrim_trailing_whitespace = true[m
+[32m+[m
+[32m+[m[32m[*.md][m
+[32m+[m[32mmax_line_length = 0[m
+[32m+[m[32mtrim_trailing_whitespace = false[m
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7c910e7[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,34 @@[m
+[32m+[m[32m# See http://help.github.com/ignore-files/ for more about ignoring files.[m
+[32m+[m
+[32m+[m[32m# compiled output[m
+[32m+[m[32m/dist[m
+[32m+[m[32m/tmp[m
+[32m+[m
+[32m+[m[32m# dependencies[m
+[32m+[m[32m/node_modules[m
+[32m+[m[32m/bower_components[m
+[32m+[m
+[32m+[m[32m# IDEs and editors[m
+[32m+[m[32m/.idea[m
+[32m+[m[32m/.vscode[m
+[32m+[m[32m.project[m
+[32m+[m[32m.classpath[m
+[32m+[m[32m*.launch[m
+[32m+[m[32m.settings/[m
+[32m+[m
+[32m+[m[32m# misc[m
+[32m+[m[32m/.sass-cache[m
+[32m+[m[32m/connect.lock[m
+[32m+[m[32m/coverage/*[m
+[32m+[m[32m/libpeerconnection.log[m
+[32m+[m[32mnpm-debug.log[m
+[32m+[m[32mtestem.log[m
+[32m+[m[32m/typings[m
+[32m+[m
+[32m+[m[32m# e2e[m
+[32m+[m[32m/e2e/*.js[m
+[32m+[m[32m/e2e/*.map[m
+[32m+[m
+[32m+[m[32m#System Files[m
+[32m+[m[32m.DS_Store[m
+[32m+[m[32mThumbs.db[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8217ee2[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,31 @@[m
+[32m+[m[32m# GentlemenBlack[m
+[32m+[m
+[32m+[m[32mThis project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.18.[m
+[32m+[m
+[32m+[m[32m## Development server[m
+[32m+[m[32mRun `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.[m
+[32m+[m
+[32m+[m[32m## Code scaffolding[m
+[32m+[m
+[32m+[m[32mRun `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.[m
+[32m+[m
+[32m+[m[32m## Build[m
+[32m+[m
+[32m+[m[32mRun `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.[m
+[32m+[m
+[32m+[m[32m## Running unit tests[m
+[32m+[m
+[32m+[m[32mRun `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).[m
+[32m+[m
+[32m+[m[32m## Running end-to-end tests[m
+[32m+[m
+[32m+[m[32mRun `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).[m
+[32m+[m[32mBefore running the tests make sure you are serving the app via `ng serve`.[m
+[32m+[m
+[32m+[m[32m## Deploying to Github Pages[m
+[32m+[m
+[32m+[m[32mRun `ng github-pages:deploy` to deploy to Github Pages.[m
+[32m+[m
+[32m+[m[32m## Further help[m
+[32m+[m
+[32m+[m[32mTo get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).[m
+[1mdiff --git a/angular-cli.json b/angular-cli.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..bd9b46b[m
+[1m--- /dev/null[m
+[1m+++ b/angular-cli.json[m
+[36m@@ -0,0 +1,59 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "project": {[m
+[32m+[m[32m    "version": "1.0.0-beta.18",[m
+[32m+[m[32m    "name": "gentlemen-black"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "apps": [[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "root": "src",[m
+[32m+[m[32m      "outDir": "dist",[m
+[32m+[m[32m      "assets": [[m
+[32m+[m[32m        "assets",[m
+[32m+[m[32m        "favicon.ico"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "index": "index.html",[m
+[32m+[m[32m      "main": "main.ts",[m
+[32m+[m[32m      "test": "test.ts",[m
+[32m+[m[32m      "tsconfig": "tsconfig.json",[m
+[32m+[m[32m      "prefix": "app",[m
+[32m+[m[32m      "mobile": false,[m
+[32m+[m[32m      "styles": [[m
+[32m+[m[32m        "styles.css"[m
+[32m+[m[32m      ],[m
+[32m+[m[32m      "scripts": [],[m
+[32m+[m[32m      "environments": {[m
+[32m+[m[32m        "source": "environments/environment.ts",[m
+[32m+[m[32m        "dev": "environments/environment.ts",[m
+[32m+[m[32m        "prod": "environments/environment.prod.ts"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    }[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "addons": [],[m
+[32m+[m[32m  "packages": [],[m
+[32m+[m[32m  "e2e": {[m
+[32m+[m[32m    "protractor": {[m
+[32m+[m[32m      "config": "./protractor.conf.js"[m
+[32m+[m[32m    }[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "test": {[m
+[32m+[m[32m    "karma": {[m
+[32m+[m[32m      "config": "./karma.conf.js"[m
+[32m+[m[32m    }[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "defaults": {[m
+[32m+[m[32m    "styleExt": "css",[m
+[32m+[m[32m    "prefixInterfaces": false,[m
+[32m+[m[32m    "inline": {[m
+[32m+[m[32m      "style": false,[m
+[32m+[m[32m      "template": false[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "spec": {[m
+[32m+[m[32m      "class": false,[m
+[32m+[m[32m      "component": true,[m
+[32m+[m[32m      "directive": true,[m
+[32m+[m[32m      "module": false,[m
+[32m+[m[32m      "pipe": true,[m
+[32m+[m[32m      "service": true[m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/e2e/app.e2e-spec.ts b/e2e/app.e2e-spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9cc64d5[m
+[1m--- /dev/null[m
+[1m+++ b/e2e/app.e2e-spec.ts[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32mimport { GentlemenBlackPage } from './app.po';[m
+[32m+[m
+[32m+[m[32mdescribe('gentlemen-black App', function() {[m
+[32m+[m[32m  let page: GentlemenBlackPage;[m
+[32m+[m
+[32m+[m[32m  beforeEach(() => {[m
+[32m+[m[32m    page = new GentlemenBlackPage();[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  it('should display message saying app works', () => {[m
+[32m+[m[32m    page.navigateTo();[m
+[32m+[m[32m    expect(page.getParagraphText()).toEqual('app works!');[m
+[32m+[m[32m  });[m
+[32m+[m[32m});[m
+[1mdiff --git a/e2e/app.po.ts b/e2e/app.po.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9819136[m
+[1m--- /dev/null[m
+[1m+++ b/e2e/app.po.ts[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32mimport { browser, element, by } from 'protractor';[m
+[32m+[m
+[32m+[m[32mexport class GentlemenBlackPage {[m
+[32m+[m[32m  navigateTo() {[m
+[32m+[m[32m    return browser.get('/');[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  getParagraphText() {[m
+[32m+[m[32m    return element(by.css('app-root h1')).getText();[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/e2e/tsconfig.json b/e2e/tsconfig.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..656bdb1[m
+[1m--- /dev/null[m
+[1m+++ b/e2e/tsconfig.json[m
+[36m@@ -0,0 +1,16 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "compileOnSave": false,[m
+[32m+[m[32m  "compilerOptions": {[m
+[32m+[m[32m    "declaration": false,[m
+[32m+[m[32m    "emitDecoratorMetadata": true,[m
+[32m+[m[32m    "experimentalDecorators": true,[m
+[32m+[m[32m    "module": "commonjs",[m
+[32m+[m[32m    "moduleResolution": "node",[m
+[32m+[m[32m    "outDir": "../dist/out-tsc-e2e",[m
+[32m+[m[32m    "sourceMap": true,[m
+[32m+[m[32m    "target": "es5",[m
+[32m+[m[32m    "typeRoots": [[m
+[32m+[m[32m      "../node_modules/@types"[m
+[32m+[m[32m    ][m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/karma.conf.js b/karma.conf.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e28922a[m
+[1m--- /dev/null[m
+[1m+++ b/karma.conf.js[m
+[36m@@ -0,0 +1,38 @@[m
+[32m+[m[32m// Karma configuration file, see link for more information[m
+[32m+[m[32m// https://karma-runner.github.io/0.13/config/configuration-file.html[m
+[32m+[m
+[32m+[m[32mmodule.exports = function (config) {[m
+[32m+[m[32m  config.set({[m
+[32m+[m[32m    basePath: '',[m
+[32m+[m[32m    frameworks: ['jasmine', 'angular-cli'],[m
+[32m+[m[32m    plugins: [[m
+[32m+[m[32m      require('karma-jasmine'),[m
+[32m+[m[32m      require('karma-chrome-launcher'),[m
+[32m+[m[32m      require('karma-remap-istanbul'),[m
+[32m+[m[32m      require('angular-cli/plugins/karma')[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    files: [[m
+[32m+[m[32m      { pattern: './src/test.ts', watched: false }[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    preprocessors: {[m
+[32m+[m[32m      './src/test.ts': ['angular-cli'][m
+[32m+[m[32m    },[m
+[32m+[m[32m    remapIstanbulReporter: {[m
+[32m+[m[32m      reports: {[m
+[32m+[m[32m        html: 'coverage',[m
+[32m+[m[32m        lcovonly: './coverage/coverage.lcov'[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    angularCli: {[m
+[32m+[m[32m      config: './angular-cli.json',[m
+[32m+[m[32m      environment: 'dev'[m
+[32m+[m[32m    },[m
+[32m+[m[32m    reporters: ['progress', 'karma-remap-istanbul'],[m
+[32m+[m[32m    port: 9876,[m
+[32m+[m[32m    colors: true,[m
+[32m+[m[32m    logLevel: config.LOG_INFO,[m
+[32m+[m[32m    autoWatch: true,[m
+[32m+[m[32m    browsers: ['Chrome'],[m
+[32m+[m[32m    singleRun: false[m
+[32m+[m[32m  });[m
+[32m+[m[32m};[m
+[1mdiff --git a/package.json b/package.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..0e5f932[m
+[1m--- /dev/null[m
+[1m+++ b/package.json[m
+[36m@@ -0,0 +1,45 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "name": "gentlemen-black",[m
+[32m+[m[32m  "version": "0.0.0",[m
+[32m+[m[32m  "license": "MIT",[m
+[32m+[m[32m  "angular-cli": {},[m
+[32m+[m[32m  "scripts": {[m
+[32m+[m[32m    "start": "ng serve",[m
+[32m+[m[32m    "lint": "tslint \"src/**/*.ts\"",[m
+[32m+[m[32m    "test": "ng test",[m
+[32m+[m[32m    "pree2e": "webdriver-manager update",[m
+[32m+[m[32m    "e2e": "protractor"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "private": true,[m
+[32m+[m[32m  "dependencies": {[m
+[32m+[m[32m    "@angular/common": "~2.1.0",[m
+[32m+[m[32m    "@angular/compiler": "~2.1.0",[m
+[32m+[m[32m    "@angular/core": "~2.1.0",[m
+[32m+[m[32m    "@angular/forms": "~2.1.0",[m
+[32m+[m[32m    "@angular/http": "~2.1.0",[m
+[32m+[m[32m    "@angular/platform-browser": "~2.1.0",[m
+[32m+[m[32m    "@angular/platform-browser-dynamic": "~2.1.0",[m
+[32m+[m[32m    "@angular/router": "~3.1.0",[m
+[32m+[m[32m    "core-js": "^2.4.1",[m
+[32m+[m[32m    "rxjs": "5.0.0-beta.12",[m
+[32m+[m[32m    "ts-helpers": "^1.1.1",[m
+[32m+[m[32m    "zone.js": "^0.6.23"[m
+[32m+[m[32m  },[m
+[32m+[m[32m  "devDependencies": {[m
+[32m+[m[32m    "@types/jasmine": "^2.2.30",[m
+[32m+[m[32m    "@types/node": "^6.0.42",[m
+[32m+[m[32m    "angular-cli": "1.0.0-beta.18",[m
+[32m+[m[32m    "codelyzer": "1.0.0-beta.1",[m
+[32m+[m[32m    "jasmine-core": "2.4.1",[m
+[32m+[m[32m    "jasmine-spec-reporter": "2.5.0",[m
+[32m+[m[32m    "karma": "1.2.0",[m
+[32m+[m[32m    "karma-chrome-launcher": "^2.0.0",[m
+[32m+[m[32m    "karma-cli": "^1.0.1",[m
+[32m+[m[32m    "karma-jasmine": "^1.0.2",[m
+[32m+[m[32m    "karma-remap-istanbul": "^0.2.1",[m
+[32m+[m[32m    "protractor": "4.0.9",[m
+[32m+[m[32m    "ts-node": "1.2.1",[m
+[32m+[m[32m    "tslint": "3.13.0",[m
+[32m+[m[32m    "typescript": "~2.0.3"[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/protractor.conf.js b/protractor.conf.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..169743b[m
+[1m--- /dev/null[m
+[1m+++ b/protractor.conf.js[m
+[36m@@ -0,0 +1,32 @@[m
+[32m+[m[32m// Protractor configuration file, see link for more information[m
+[32m+[m[32m// https://github.com/angular/protractor/blob/master/docs/referenceConf.js[m
+[32m+[m
+[32m+[m[32m/*global jasmine */[m
+[32m+[m[32mvar SpecReporter = require('jasmine-spec-reporter');[m
+[32m+[m
+[32m+[m[32mexports.config = {[m
+[32m+[m[32m  allScriptsTimeout: 11000,[m
+[32m+[m[32m  specs: [[m
+[32m+[m[32m    './e2e/**/*.e2e-spec.ts'[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  capabilities: {[m
+[32m+[m[32m    'browserName': 'chrome'[m
+[32m+[m[32m  },[m
+[32m+[m[32m  directConnect: true,[m
+[32m+[m[32m  baseUrl: 'http://localhost:4200/',[m
+[32m+[m[32m  framework: 'jasmine',[m
+[32m+[m[32m  jasmineNodeOpts: {[m
+[32m+[m[32m    showColors: true,[m
+[32m+[m[32m    defaultTimeoutInterval: 30000,[m
+[32m+[m[32m    print: function() {}[m
+[32m+[m[32m  },[m
+[32m+[m[32m  useAllAngular2AppRoots: true,[m
+[32m+[m[32m  beforeLaunch: function() {[m
+[32m+[m[32m    require('ts-node').register({[m
+[32m+[m[32m      project: 'e2e'[m
+[32m+[m[32m    });[m
+[32m+[m[32m  },[m
+[32m+[m[32m  onPrepare: function() {[m
+[32m+[m[32m    jasmine.getEnv().addReporter(new SpecReporter());[m
+[32m+[m[32m  }[m
+[32m+[m[32m};[m
+[1mdiff --git a/src/app/app.component.css b/src/app/app.component.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/src/app/app.component.html b/src/app/app.component.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b6931b5[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/app.component.html[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32m<h1>[m
+[32m+[m[32m  {{title}}[m
+[32m+[m[32m</h1>[m
+[1mdiff --git a/src/app/app.component.spec.ts b/src/app/app.component.spec.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..905b53c[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/app.component.spec.ts[m
+[36m@@ -0,0 +1,33 @@[m
+[32m+[m[32m/* tslint:disable:no-unused-variable */[m
+[32m+[m
+[32m+[m[32mimport { TestBed, async } from '@angular/core/testing';[m
+[32m+[m[32mimport { AppComponent } from './app.component';[m
+[32m+[m
+[32m+[m[32mdescribe('App: GentlemenBlack', () => {[m
+[32m+[m[32m  beforeEach(() => {[m
+[32m+[m[32m    TestBed.configureTestingModule({[m
+[32m+[m[32m      declarations: [[m
+[32m+[m[32m        AppComponent[m
+[32m+[m[32m      ],[m
+[32m+[m[32m    });[m
+[32m+[m[32m  });[m
+[32m+[m
+[32m+[m[32m  it('should create the app', async(() => {[m
+[32m+[m[32m    let fixture = TestBed.createComponent(AppComponent);[m
+[32m+[m[32m    let app = fixture.debugElement.componentInstance;[m
+[32m+[m[32m    expect(app).toBeTruthy();[m
+[32m+[m[32m  }));[m
+[32m+[m
+[32m+[m[32m  it(`should have as title 'app works!'`, async(() => {[m
+[32m+[m[32m    let fixture = TestBed.createComponent(AppComponent);[m
+[32m+[m[32m    let app = fixture.debugElement.componentInstance;[m
+[32m+[m[32m    expect(app.title).toEqual('app works!');[m
+[32m+[m[32m  }));[m
+[32m+[m
+[32m+[m[32m  it('should render title in a h1 tag', async(() => {[m
+[32m+[m[32m    let fixture = TestBed.createComponent(AppComponent);[m
+[32m+[m[32m    fixture.detectChanges();[m
+[32m+[m[32m    let compiled = fixture.debugElement.nativeElement;[m
+[32m+[m[32m    expect(compiled.querySelector('h1').textContent).toContain('app works!');[m
+[32m+[m[32m  }));[m
+[32m+[m[32m});[m
+[1mdiff --git a/src/app/app.component.ts b/src/app/app.component.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ff63e05[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/app.component.ts[m
+[36m@@ -0,0 +1,10 @@[m
+[32m+[m[32mimport { Component } from '@angular/core';[m
+[32m+[m
+[32m+[m[32m@Component({[m
+[32m+[m[32m  selector: 'app-root',[m
+[32m+[m[32m  templateUrl: './app.component.html',[m
+[32m+[m[32m  styleUrls: ['./app.component.css'][m
+[32m+[m[32m})[m
+[32m+[m[32mexport class AppComponent {[m
+[32m+[m[32m  title = 'app works!';[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/app/app.module.ts b/src/app/app.module.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..67ae491[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/app.module.ts[m
+[36m@@ -0,0 +1,20 @@[m
+[32m+[m[32mimport { BrowserModule } from '@angular/platform-browser';[m
+[32m+[m[32mimport { NgModule } from '@angular/core';[m
+[32m+[m[32mimport { FormsModule } from '@angular/forms';[m
+[32m+[m[32mimport { HttpModule } from '@angular/http';[m
+[32m+[m
+[32m+[m[32mimport { AppComponent } from './app.component';[m
+[32m+[m
+[32m+[m[32m@NgModule({[m
+[32m+[m[32m  declarations: [[m
+[32m+[m[32m    AppComponent[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  imports: [[m
+[32m+[m[32m    BrowserModule,[m
+[32m+[m[32m    FormsModule,[m
+[32m+[m[32m    HttpModule[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  providers: [],[m
+[32m+[m[32m  bootstrap: [AppComponent][m
+[32m+[m[32m})[m
+[32m+[m[32mexport class AppModule { }[m
+[1mdiff --git a/src/app/index.ts b/src/app/index.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..875bdb2[m
+[1m--- /dev/null[m
+[1m+++ b/src/app/index.ts[m
+[36m@@ -0,0 +1,2 @@[m
+[32m+[m[32mexport * from './app.component';[m
+[32m+[m[32mexport * from './app.module';[m
+[1mdiff --git a/src/assets/.gitkeep b/src/assets/.gitkeep[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/src/environments/environment.prod.ts b/src/environments/environment.prod.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3612073[m
+[1m--- /dev/null[m
+[1m+++ b/src/environments/environment.prod.ts[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32mexport const environment = {[m
+[32m+[m[32m  production: true[m
+[32m+[m[32m};[m
+[1mdiff --git a/src/environments/environment.ts b/src/environments/environment.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..00313f1[m
+[1m--- /dev/null[m
+[1m+++ b/src/environments/environment.ts[m
+[36m@@ -0,0 +1,8 @@[m
+[32m+[m[32m// The file contents for the current environment will overwrite these during build.[m
+[32m+[m[32m// The build system defaults to the dev environment which uses `environment.ts`, but if you do[m
+[32m+[m[32m// `ng build --env=prod` then `environment.prod.ts` will be used instead.[m
+[32m+[m[32m// The list of which env maps to which file can be found in `angular-cli.json`.[m
+[32m+[m
+[32m+[m[32mexport const environment = {[m
+[32m+[m[32m  production: false[m
+[32m+[m[32m};[m
+[1mdiff --git a/src/favicon.ico b/src/favicon.ico[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8081c7c[m
+Binary files /dev/null and b/src/favicon.ico differ
+[1mdiff --git a/src/index.html b/src/index.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7e1faf3[m
+[1m--- /dev/null[m
+[1m+++ b/src/index.html[m
+[36m@@ -0,0 +1,14 @@[m
+[32m+[m[32m<!doctype html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m[32m  <meta charset="utf-8">[m
+[32m+[m[32m  <title>GentlemenBlack</title>[m
+[32m+[m[32m  <base href="/">[m
+[32m+[m
+[32m+[m[32m  <meta name="viewport" content="width=device-width, initial-scale=1">[m
+[32m+[m[32m  <link rel="icon" type="image/x-icon" href="favicon.ico">[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m  <app-root>Loading...</app-root>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+[1mdiff --git a/src/main.ts b/src/main.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..5c3c520[m
+[1m--- /dev/null[m
+[1m+++ b/src/main.ts[m
+[36m@@ -0,0 +1,12 @@[m
+[32m+[m[32mimport './polyfills.ts';[m
+[32m+[m
+[32m+[m[32mimport { platformBrowserDynamic } from '@angular/platform-browser-dynamic';[m
+[32m+[m[32mimport { enableProdMode } from '@angular/core';[m
+[32m+[m[32mimport { environment } from './environments/environment';[m
+[32m+[m[32mimport { AppModule } from './app/';[m
+[32m+[m
+[32m+[m[32mif (environment.production) {[m
+[32m+[m[32m  enableProdMode();[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mplatformBrowserDynamic().bootstrapModule(AppModule);[m
+[1mdiff --git a/src/polyfills.ts b/src/polyfills.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..3b4c55b[m
+[1m--- /dev/null[m
+[1m+++ b/src/polyfills.ts[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32m// This file includes polyfills needed by Angular 2 and is loaded before[m
+[32m+[m[32m// the app. You can add your own extra polyfills to this file.[m
+[32m+[m[32mimport 'core-js/es6/symbol';[m
+[32m+[m[32mimport 'core-js/es6/object';[m
+[32m+[m[32mimport 'core-js/es6/function';[m
+[32m+[m[32mimport 'core-js/es6/parse-int';[m
+[32m+[m[32mimport 'core-js/es6/parse-float';[m
+[32m+[m[32mimport 'core-js/es6/number';[m
+[32m+[m[32mimport 'core-js/es6/math';[m
+[32m+[m[32mimport 'core-js/es6/string';[m
+[32m+[m[32mimport 'core-js/es6/date';[m
+[32m+[m[32mimport 'core-js/es6/array';[m
+[32m+[m[32mimport 'core-js/es6/regexp';[m
+[32m+[m[32mimport 'core-js/es6/map';[m
+[32m+[m[32mimport 'core-js/es6/set';[m
+[32m+[m[32mimport 'core-js/es6/reflect';[m
+[32m+[m
+[32m+[m[32mimport 'core-js/es7/reflect';[m
+[32m+[m[32mimport 'zone.js/dist/zone';[m
+[1mdiff --git a/src/styles.css b/src/styles.css[m
+[1mnew file mode 100644[m
+[1mindex 0000000..90d4ee0[m
+[1m--- /dev/null[m
+[1m+++ b/src/styles.css[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32m/* You can add global styles to this file, and also import other style files */[m
+[1mdiff --git a/src/test.ts b/src/test.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..7727c8e[m
+[1m--- /dev/null[m
+[1m+++ b/src/test.ts[m
+[36m@@ -0,0 +1,34 @@[m
+[32m+[m[32mimport './polyfills.ts';[m
+[32m+[m
+[32m+[m[32mimport 'zone.js/dist/long-stack-trace-zone';[m
+[32m+[m[32mimport 'zone.js/dist/proxy.js';[m
+[32m+[m[32mimport 'zone.js/dist/sync-test';[m
+[32m+[m[32mimport 'zone.js/dist/jasmine-patch';[m
+[32m+[m[32mimport 'zone.js/dist/async-test';[m
+[32m+[m[32mimport 'zone.js/dist/fake-async-test';[m
+[32m+[m
+[32m+[m[32m// Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.[m
+[32m+[m[32mdeclare var __karma__: any;[m
+[32m+[m[32mdeclare var require: any;[m
+[32m+[m
+[32m+[m[32m// Prevent Karma from running prematurely.[m
+[32m+[m[32m__karma__.loaded = function () {};[m
+[32m+[m
+[32m+[m
+[32m+[m[32mPromise.all([[m
+[32m+[m[32m  System.import('@angular/core/testing'),[m
+[32m+[m[32m  System.import('@angular/platform-browser-dynamic/testing')[m
+[32m+[m[32m])[m
+[32m+[m[32m  // First, initialize the Angular testing environment.[m
+[32m+[m[32m  .then(([testing, testingBrowser]) => {[m
+[32m+[m[32m    testing.getTestBed().initTestEnvironment([m
+[32m+[m[32m      testingBrowser.BrowserDynamicTestingModule,[m
+[32m+[m[32m      testingBrowser.platformBrowserDynamicTesting()[m
+[32m+[m[32m    );[m
+[32m+[m[32m  })[m
+[32m+[m[32m  // Then we find all the tests.[m
+[32m+[m[32m  .then(() => require.context('./', true, /\.spec\.ts/))[m
+[32m+[m[32m  // And load the modules.[m
+[32m+[m[32m  .then(context => context.keys().map(context))[m
+[32m+[m[32m  // Finally, start Karma to run the tests.[m
+[32m+[m[32m  .then(__karma__.start, __karma__.error);[m
+[1mdiff --git a/src/tsconfig.json b/src/tsconfig.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9b4c84c[m
+[1m--- /dev/null[m
+[1m+++ b/src/tsconfig.json[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "compilerOptions": {[m
+[32m+[m[32m    "declaration": false,[m
+[32m+[m[32m    "emitDecoratorMetadata": true,[m
+[32m+[m[32m    "experimentalDecorators": true,[m
+[32m+[m[32m    "lib": ["es6", "dom"],[m
+[32m+[m[32m    "mapRoot": "./",[m
+[32m+[m[32m    "module": "es6",[m
+[32m+[m[32m    "moduleResolution": "node",[m
+[32m+[m[32m    "outDir": "../dist/out-tsc",[m
+[32m+[m[32m    "sourceMap": true,[m
+[32m+[m[32m    "target": "es5",[m
+[32m+[m[32m    "typeRoots": [[m
+[32m+[m[32m      "../node_modules/@types"[m
+[32m+[m[32m    ][m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[1mdiff --git a/src/typings.d.ts b/src/typings.d.ts[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ed687ab[m
+[1m--- /dev/null[m
+[1m+++ b/src/typings.d.ts[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m// Typings reference file, you can add your own global typings here[m
+[32m+[m[32m// https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html[m
+[32m+[m
+[32m+[m[32mdeclare var System: any;[m
+[1mdiff --git a/tslint.json b/tslint.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ad0093e[m
+[1m--- /dev/null[m
+[1m+++ b/tslint.json[m
+[36m@@ -0,0 +1,114 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "rulesDirectory": [[m
+[32m+[m[32m    "node_modules/codelyzer"[m
+[32m+[m[32m  ],[m
+[32m+[m[32m  "rules": {[m
+[32m+[m[32m    "class-name": true,[m
+[32m+[m[32m    "comment-format": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "check-space"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "curly": true,[m
+[32m+[m[32m    "eofline": true,[m
+[32m+[m[32m    "forin": true,[m
+[32m+[m[32m    "indent": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "spaces"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "label-position": true,[m
+[32m+[m[32m    "label-undefined": true,[m
+[32m+[m[32m    "max-line-length": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      140[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "member-access": false,[m
+[32m+[m[32m    "member-ordering": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "static-before-instance",[m
+[32m+[m[32m      "variables-before-functions"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "no-arg": true,[m
+[32m+[m[32m    "no-bitwise": true,[m
+[32m+[m[32m    "no-console": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "debug",[m
+[32m+[m[32m      "info",[m
+[32m+[m[32m      "time",[m
+[32m+[m[32m      "timeEnd",[m
+[32m+[m[32m      "trace"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "no-construct": true,[m
+[32m+[m[32m    "no-debugger": true,[m
+[32m+[m[32m    "no-duplicate-key": true,[m
+[32m+[m[32m    "no-duplicate-variable": true,[m
+[32m+[m[32m    "no-empty": false,[m
+[32m+[m[32m    "no-eval": true,[m
+[32m+[m[32m    "no-inferrable-types": true,[m
+[32m+[m[32m    "no-shadowed-variable": true,[m
+[32m+[m[32m    "no-string-literal": false,[m
+[32m+[m[32m    "no-switch-case-fall-through": true,[m
+[32m+[m[32m    "no-trailing-whitespace": true,[m
+[32m+[m[32m    "no-unused-expression": true,[m
+[32m+[m[32m    "no-unused-variable": true,[m
+[32m+[m[32m    "no-unreachable": true,[m
+[32m+[m[32m    "no-use-before-declare": true,[m
+[32m+[m[32m    "no-var-keyword": true,[m
+[32m+[m[32m    "object-literal-sort-keys": false,[m
+[32m+[m[32m    "one-line": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "check-open-brace",[m
+[32m+[m[32m      "check-catch",[m
+[32m+[m[32m      "check-else",[m
+[32m+[m[32m      "check-whitespace"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "quotemark": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "single"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "radix": true,[m
+[32m+[m[32m    "semicolon": [[m
+[32m+[m[32m      "always"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "triple-equals": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "allow-null-check"[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "typedef-whitespace": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      {[m
+[32m+[m[32m        "call-signature": "nospace",[m
+[32m+[m[32m        "index-signature": "nospace",[m
+[32m+[m[32m        "parameter": "nospace",[m
+[32m+[m[32m        "property-declaration": "nospace",[m
+[32m+[m[32m        "variable-declaration": "nospace"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    ],[m
+[32m+[m[32m    "variable-name": false,[m
+[32m+[m[32m    "whitespace": [[m
+[32m+[m[32m      true,[m
+[32m+[m[32m      "check-branch",[m
+[32m+[m[32m      "check-decl",[m
+[32m+[m[32m      "check-operator",[m
+[32m+[m[32m      "check-separator",[m
+[32m+[m[32m      "check-type"[m
+[32m+[m[32m    ],[m
+[32m+[m
+[32m+[m[32m    "directive-selector-prefix": [true, "app"],[m
+[32m+[m[32m    "component-selector-prefix": [true, "app"],[m
+[32m+[m[32m    "directive-selector-name": [true, "camelCase"],[m
+[32m+[m[32m    "component-selector-name": [true, "kebab-case"],[m
+[32m+[m[32m    "directive-selector-type": [true, "attribute"],[m
+[32m+[m[32m    "component-selector-type": [true, "element"],[m
+[32m+[m[32m    "use-input-property-decorator": true,[m
+[32m+[m[32m    "use-output-property-decorator": true,[m
+[32m+[m[32m    "use-host-property-decorator": true,[m
+[32m+[m[32m    "no-input-rename": true,[m
+[32m+[m[32m    "no-output-rename": true,[m
+[32m+[m[32m    "use-life-cycle-interface": true,[m
+[32m+[m[32m    "use-pipe-transform-interface": true,[m
+[32m+[m[32m    "component-class-suffix": true,[m
+[32m+[m[32m    "directive-class-suffix": true,[m
+[32m+[m[32m    "templates-use-public": true,[m
+[32m+[m[32m    "invoke-injectable": true[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
